@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+<script>
+
+let array = [2,3,5,6];
+
+console.log(array);
+
+// Generating permutation using Heap Algorithm
+function heapPermutation(a, size)
+{
+    // if size becomes 1 then prints the obtained
+    // permutation
+    if (size == 1) {
+        console.log(a);
+        return;
+    }
+
+    for (let i = 0; i < size; i++) {
+        //console.log(a);
+        heapPermutation(a, size - 1);
+
+        // if size is odd, swap 0th i.e (first) and
+        // (size-1)th i.e (last) element
+        if (size % 2 == 1){
+          let b = a[size - 1];
+          a[size - 1] = a[0];
+          a[0] = b;
+          }
+
+        // If size is even, swap ith and
+        // (size-1)th i.e (last) element
+        else{
+          let c = a[size - 1];
+          a[size - 1] = a[i];
+    	    a[i] = c;
+
+        }
+    }
+}
+
+let n = array.length;
+heapPermutation(array, n);
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
